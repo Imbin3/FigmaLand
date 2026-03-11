@@ -409,8 +409,8 @@ button {
     right: 10px;
     z-index: 10;
     width: 150px;
-    padding-top: 8vh;
-    padding-bottom: 4vh;
+    padding-top: 100px;
+    padding-bottom: 50px;
     border-radius: 100px;
     transition: 0.5s all ease;
     border-left: #e737b7 4px solid;
