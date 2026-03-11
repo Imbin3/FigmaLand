@@ -1,0 +1,525 @@
+@charset "UTF-8";
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure, fieldset):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями и видео
+ */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Убираем скачок интерфейса по горизонтали
+    при появлении / исчезновении скроллбара
+   */
+  scrollbar-gutter: stable;
+  /**
+    Плавный скролл
+   */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Нормализация высоты элемента ссылки при его инспектировании в DevTools
+ */
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+  Курсор-рука при наведении на элемент
+ */
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+  Убирает серую подсветку при тапе на мобильных устройствах (iOS/Android)
+ */
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут fill со значением 'none' или начинается с 'url')
+ */
+:where([fill]:not([fill=none],
+[fill^=url])) {
+  fill: currentColor;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут stroke со значением 'none')
+ */
+:where([stroke]:not([stroke=none],
+[stroke^=url])) {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Приведение рамок таблиц в классический 'collapse' вид
+ */
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: "Graphik";
+  src: url(../fonts/Graphik-Bold.woff2) format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Graphik";
+  src: url(../fonts/Graphik-Regular.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url(../fonts/Roboto-Variable.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url(../fonts/Roboto-Variable.woff2) format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --color-primary: #2091f9;
+  --color-secondary: #2dc071;
+  --color-secondary: #f15b07;
+  --color-text: #252b42;
+  --color-second-text: #374754;
+  --color-light-text: #fff;
+  --color-dark-background: #252b42;
+  --color-light-background: #fff;
+  --color-background-gradient: #222b32;
+  --font-family: "Graphik", sans-serif;
+  --second-family: "Roboto", sans-serif;
+  --border-radius: 35px;
+  --shadow-video: 0 8px 63px 0 rgba(0, 0, 0, 0.15);
+  --shadow-form: 0 13px 19px 0 rgba(0, 0, 0, 0.07);
+  --input-height: 54px;
+  --input-border-radius: 39px;
+  --input-border: 1px solid #e8e8e8;
+  --button-height: 56px;
+  --link-button-height: 60px;
+  --container-width: 1440px;
+  --container-padding-x: 20px;
+  --button-transition-duration: .3s;
+  --card-transition-duraration: .5s;
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 520px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 521px) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
+.hidden-scrollbar {
+  scrollbar-width: none;
+  overflow: -moz-scrollbars-none;
+}
+.hidden-scrollbar::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: 400;
+  color: var(--color-second-text);
+  letter-spacing: 0.01em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h3 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 74px;
+  line-height: 1.13;
+}
+
+h2 {
+  font-size: 48px;
+  line-height: 1.14;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: 28px;
+  line-height: 1.42;
+}
+
+h5 {
+  font-size: 16px;
+  line-height: 1.43;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.38;
+}
+
+a {
+  font-size: 15px;
+  line-height: 1.86;
+  color: var(--color-light-text);
+}
+
+button {
+  font-size: 20px;
+  height: var(--button-height);
+}
+
+.h1 {
+  font-size: 74px;
+  line-height: 1.13;
+}
+
+.h2 {
+  font-size: 48px;
+  line-height: 1.14;
+}
+
+.h3 {
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.h4 {
+  font-size: 28px;
+  line-height: 1.42;
+}
+
+.h5 {
+  font-size: 16px;
+  line-height: 1.43;
+}
+
+.path__bg {
+  min-height: 930px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-repeat: no-repeat;
+  clip-path: polygon(0 85%, 0 0, 100% 0, 100% 85%, 48% 100%);
+  padding-bottom: 184px;
+}
+
+.header.open .header__nav {
+  right: 10px;
+}
+@media (max-width: 520px) {
+  .header__inner {
+    padding: 16px 17px;
+  }
+}
+.header__inner {
+  padding: 39px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 520px) {
+  .header__nav {
+    background-color: var(--color-primary);
+    position: absolute;
+    top: 10px;
+    right: -100%;
+    z-index: 10;
+    width: 150px;
+    padding-top: 8vh;
+    padding-bottom: 4vh;
+    border-radius: 100px;
+    transition: 0.35s all ease;
+    border-left: #e737b7 4px solid;
+    border-bottom: #e737b7 4px solid;
+  }
+}
+@media (max-width: 520px) {
+  .header__nav-list {
+    flex-direction: column;
+  }
+}
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 21px;
+       column-gap: 21px;
+}
+@media (max-width: 520px) {
+  .header__nav-list a {
+    display: block;
+  }
+}
+.header__nav-list a {
+  padding: 10px;
+}
+.header__soc1als-list {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 24px;
+       column-gap: 24px;
+}
+
+.button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  color: var(--color-light-text);
+  background-color: var(--color-primary);
+  width: 236px;
+  border-radius: var(--border-radius);
+}
+
+.hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.hero__title {
+  max-width: 692px;
+  padding: 10px;
+  text-align: center;
+  color: var(--color-light-text);
+  margin-bottom: 7px;
+}
+.hero__subtitle {
+  max-width: 766px;
+  text-align: center;
+  color: var(--color-light-text);
+  margin-bottom: 60px;
+}
+
+.burger__btn {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  width: 36px;
+  height: 24px;
+  z-index: 11;
+}
+.burger__btn-first-line {
+  position: absolute;
+  width: 27px;
+  height: 3px;
+  background-color: var(--color-light-text);
+  right: 5px;
+  top: 0;
+  transition: 0.35s all ease;
+}
+.header.open .burger__btn-first-line {
+  transform: translateY(0);
+  rotate: 45deg;
+  top: 50%;
+}
+.burger__btn-second-line {
+  position: absolute;
+  width: 21px;
+  height: 3px;
+  background-color: var(--color-light-text);
+  right: 5px;
+  top: 11px;
+  transition: 0.35s all ease;
+}
+.header.open .burger__btn-second-line {
+  opacity: 0;
+}
+.burger__btn-third-line {
+  position: absolute;
+  width: 13px;
+  height: 3px;
+  background-color: var(--color-light-text);
+  right: 5px;
+  bottom: 0;
+  transition: 0.35s all ease;
+}
+.header.open .burger__btn-third-line {
+  width: 27px;
+  top: 50%;
+  transform: translateY(0);
+  rotate: -45deg;
+}/*# sourceMappingURL=style.css.map */

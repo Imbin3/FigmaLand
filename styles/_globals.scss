@@ -1,0 +1,82 @@
+body{ 
+    font-family: var(--font-family);
+    font-weight: 400;
+    color: var(--color-second-text);
+    letter-spacing: 0.01em;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+h1,
+h3{
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 74px;
+    line-height: 1.13;
+}
+
+h2 {
+    font-size: 48px;
+    line-height: 1.14;
+}
+
+h3 {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+h4 {
+    font-size: 28px;
+    line-height: 1.42;
+}
+
+h5 {
+    font-size: 16px;
+    line-height: 1.43;
+}
+
+p{
+    font-size: 18px;
+    line-height: 1.38;
+}
+
+a{
+    font-size: 15px;
+    line-height: 1.86;
+    color: var(--color-light-text);
+}
+
+button {
+    font-size: 20px;
+    height: var(--button-height);
+}
+
+.h1 {
+    font-size: 74px;
+    line-height: 1.13;
+}
+
+.h2 {
+    font-size: 48px;
+    line-height: 1.14;
+}
+
+.h3 {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.h4 {
+    font-size: 28px;
+    line-height: 1.42;
+}
+
+.h5 {
+    font-size: 16px;
+    line-height: 1.43;
+}

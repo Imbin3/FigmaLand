@@ -1,0 +1,24 @@
+.hero{
+
+    &__inner{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    &__title{
+        max-width: 692px;
+        padding: 10px;
+        text-align: center;
+        color: var(--color-light-text);
+        margin-bottom: 7px;
+    }
+    
+    &__subtitle{
+        max-width: 766px;
+        text-align: center;
+        color: var(--color-light-text);
+        margin-bottom: 60px;
+    }
+}
