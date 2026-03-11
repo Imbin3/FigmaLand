@@ -388,7 +388,7 @@ button {
 }
 
 .header.open .header__nav {
-  right: 10px;
+  top: 10px;
 }
 @media (max-width: 520px) {
   .header__inner {
@@ -405,14 +405,14 @@ button {
   .header__nav {
     background-color: var(--color-primary);
     position: absolute;
-    top: 10px;
-    right: -100%;
+    top: -100%;
+    right: 10px;
     z-index: 10;
     width: 150px;
     padding-top: 8vh;
     padding-bottom: 4vh;
     border-radius: 100px;
-    transition: 0.35s all ease;
+    transition: 0.5s all ease;
     border-left: #e737b7 4px solid;
     border-bottom: #e737b7 4px solid;
   }
@@ -489,7 +489,7 @@ button {
   background-color: var(--color-light-text);
   right: 5px;
   top: 0;
-  transition: 0.35s all ease;
+  transition: 0.5s all ease;
 }
 .header.open .burger__btn-first-line {
   transform: translateY(0);
@@ -503,7 +503,7 @@ button {
   background-color: var(--color-light-text);
   right: 5px;
   top: 11px;
-  transition: 0.35s all ease;
+  transition: 0.5s all ease;
 }
 .header.open .burger__btn-second-line {
   opacity: 0;
@@ -515,7 +515,7 @@ button {
   background-color: var(--color-light-text);
   right: 5px;
   bottom: 0;
-  transition: 0.35s all ease;
+  transition: 0.5s all ease;
 }
 .header.open .burger__btn-third-line {
   width: 27px;
