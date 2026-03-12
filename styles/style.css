@@ -937,7 +937,7 @@ button {
   }
 }
 .pricing__card:hover .pricing__card-features--link {
-  color: var(--color-primary);
+  color: var(--color-light-text);
 }
 .pricing__card:hover .pricing__card-btn {
   background-color: var(--color-light-text);
