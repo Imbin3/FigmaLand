@@ -633,7 +633,9 @@ button {
   background-color: var(--color-primary);
   border-radius: 50%;
 }
-.features__video-btn--img {
-  width: 12px;
-  aspect-ratio: 1;
+@media (max-width: 520px) {
+  .features__video-btn--img {
+    width: 12px;
+    aspect-ratio: 1;
+  }
 }/*# sourceMappingURL=style.css.map */
