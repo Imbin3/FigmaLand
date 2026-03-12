@@ -720,6 +720,7 @@ button {
 }
 .organize__info-title {
   max-width: 335px;
+  padding: 10px;
   margin-bottom: 7px;
 }
 .organize__info-subtitle {
@@ -849,6 +850,7 @@ button {
 }
 .partners__title {
   margin-bottom: 7px;
+  padding: 10px;
 }
 @media (max-width: 520px) {
   .partners__subtitle {
@@ -905,6 +907,12 @@ button {
 .pricing__title {
   color: var(--color-light-text);
   margin-bottom: 7px;
+  padding: 10px;
+}
+@media (max-width: 520px) {
+  .pricing__subtitle {
+    text-align: center;
+  }
 }
 .pricing__subtitle {
   color: var(--color-light-text);
