@@ -957,6 +957,11 @@ button {
     background-color: var(--color-primary);
     color: var(--color-light-text);
   }
+  .pricing__card:active {
+    padding-block: 40px;
+    background-color: var(--color-light-text);
+    color: var(--color-second-text);
+  }
 }
 .pricing__card {
   background-color: var(--color-light-text);

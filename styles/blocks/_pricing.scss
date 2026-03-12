@@ -59,6 +59,11 @@
                 background-color: var(--color-primary);
                 color: var(--color-light-text);
             }
+            &:active{
+                padding-block: 40px;
+                background-color: var(--color-light-text);
+                color: var(--color-second-text);
+            }
         }
 
         background-color: var(--color-light-text);
