@@ -729,21 +729,38 @@ button {
 @media (max-width: 520px) {
   .subscribe__inner {
     flex-direction: column;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto auto !important;
   }
 }
 .subscribe__inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  -moz-column-gap: 50px;
-       column-gap: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: max-content max-content;
 }
 @media (max-width: 520px) {
   .subscribe__pic {
     display: flex;
     order: 2;
     margin-bottom: 80px;
+    max-width: 379px !important;
+    grid-row: span 2;
   }
+}
+.subscribe__pic {
+  grid-row: span 2;
+  max-width: 677px;
+}
+@media (max-width: 520px) {
+  .subscribe__info {
+    margin: 0 !important;
+  }
+}
+.subscribe__info {
+  align-self: end;
+  justify-self: start;
+  margin-left: 63px;
+  margin-right: 216px;
 }
 @media (max-width: 520px) {
   .subscribe__info-text {
@@ -772,13 +789,29 @@ button {
 @media (max-width: 520px) {
   .subscribe__form {
     order: 3;
+    max-width: 100vw;
+    margin: 0 !important;
   }
+}
+.subscribe__form {
+  margin-left: 63px;
 }
 .subscribe__form-text {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 36px;
+}
+@media (max-width: 520px) {
+  .subscribe__form-actions {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+.subscribe__form-actions {
+  display: flex;
+  -moz-column-gap: 12px;
+       column-gap: 12px;
 }
 @media (max-width: 520px) {
   .subscribe__form-input {
@@ -788,11 +821,11 @@ button {
 }
 @media (max-width: 520px) {
   .subscribe__form-btn {
-    width: 100%;
+    width: 100% !important;
   }
 }
 .subscribe__form-btn {
-  min-width: 172px;
+  width: 172px;
 }
 
 .input {
