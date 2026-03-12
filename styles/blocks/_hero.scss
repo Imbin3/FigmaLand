@@ -8,6 +8,12 @@
     }
 
     &__title{
+        @include mobile{
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 1.14;
+        }
+
         max-width: 692px;
         padding: 10px;
         text-align: center;
