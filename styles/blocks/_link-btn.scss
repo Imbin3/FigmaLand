@@ -1,14 +1,16 @@
-.button{
-    @include reset-button;
+.link-btn{
     @include hover{
         background-color: var(--color-light-text);
         outline: 1px solid var(--color-primary);
         color: var(--color-primary);
     }
 
-    color: var(--color-light-text);
+    padding: 16px 60px;
     background-color: var(--color-primary);
-    width: 236px;
     border-radius: var(--border-radius);
     transition: .3s all ease;
+
+    & h3{
+        margin: 0;
+    }
 }

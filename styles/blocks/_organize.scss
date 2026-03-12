@@ -1,0 +1,40 @@
+.organize{
+    @include mobile{
+        margin-bottom: 160px;
+    }
+
+    margin-bottom: 270px;
+
+    &__inner{
+        @include mobile{
+            flex-direction: column;
+        }
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1244px;
+        column-gap: 10px;
+    }
+
+    &__info{
+        @include mobile{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        max-width: 532px;
+
+        &-title{
+            max-width: 335px;
+            margin-bottom: 7px;
+        }
+
+        &-subtitle{
+            margin-bottom: 60px;
+        }
+    }
+}

@@ -1,5 +1,9 @@
 .features{
-    overflow: hidden;
+    @include mobile{
+        margin-bottom: 160px;
+    }
+
+    margin-bottom: 226px;
 
     &__inner{
         display: flex;
