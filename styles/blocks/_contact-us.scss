@@ -78,7 +78,7 @@
 
         &-link{
             @include mobile{
-                text-align: left;
+                text-align: left !important;
             }
                     
             color: var(--color-text);
@@ -104,6 +104,7 @@
         &-item{
             @include mobile{
                 flex-direction: row !important;
+                column-gap: 10px;
                 }
 
             display: flex;

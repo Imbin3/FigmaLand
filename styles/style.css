@@ -1105,7 +1105,7 @@ button {
 }
 @media (max-width: 520px) {
   .contact-us__info-link {
-    text-align: left;
+    text-align: left !important;
   }
 }
 .contact-us__info-link {
@@ -1132,6 +1132,8 @@ button {
 @media (max-width: 520px) {
   .contact-us__info-item {
     flex-direction: row !important;
+    -moz-column-gap: 10px;
+         column-gap: 10px;
   }
 }
 .contact-us__info-item {
