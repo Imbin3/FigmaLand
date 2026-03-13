@@ -1,7 +1,12 @@
 .pricing{
+    @include mobile{
+        margin-bottom: 150px;
+    }
+
     padding-block: 100px;
     background-color: var(--color-dark-background);
     margin-top: 100px;
+    margin-bottom: 200px;
 
     &__inner{
         display: flex;
